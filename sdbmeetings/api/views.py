@@ -84,6 +84,15 @@ def department_employee(request,pk):
     except Department.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
  
+@api_view(['POST'])
+def employee_email(request):
+    employees = Employee.objects.filter(email=request.data["email"])
+    serializedData = EmployeeSerializer(employees, many=True).data
+    if employees.count() > 0:
+        return Response(serializedData) 
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
 @api_view(['PUT','GET','DELETE'])
 def employee_detail(request,pk):
     try:
