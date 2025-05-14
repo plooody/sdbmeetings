@@ -74,6 +74,16 @@ def department_detail(request,pk):
         department.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+@api_view(['GET'])
+def department_employee(request,pk):
+    try:
+        Department.objects.get(pk=pk)
+        employees = Employee.objects.filter(department__id=pk)
+        serializedData = EmployeeSerializer(employees, many=True).data
+        return Response(serializedData)
+    except Department.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+ 
 @api_view(['PUT','GET','DELETE'])
 def employee_detail(request,pk):
     try:
