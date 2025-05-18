@@ -1,0 +1,32 @@
+.calendar{
+    max-width: 500px;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: rgb(198, 238, 225);
+  }
+  
+  .hours{
+    min-width: 300px;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .picker-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  
+  .departmentSelect{
+    padding: 10px;
+  }
